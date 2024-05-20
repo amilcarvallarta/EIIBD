@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             x:Class="EIIBD.PhotographPage"
+             Title="PhotographPage">
+
+    <Grid ColumnDefinitions="*, *" ColumnSpacing="30" Padding="30">
+        <VerticalStackLayout Grid.Column="0" Spacing="50">
+            <Grid x:Name="PhotographCamera">
+                <cv:CameraView x:Name="cameraView" />
+                <Image Source="purple_frame.png" Aspect="Fill" />
+            </Grid>
+
+            <Button
+                    x:Name="CapturarButton"
+                    Text="Capturar" 
+                    Clicked="OnCapturarClicked"/>
+
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Column="1" Spacing="50">
+            <Grid x:Name="PhotographSnap">
+                <Image x:Name="snapPreview" />
+                <Image Source="blue_frame.png" Aspect="Fill" />
+            </Grid>
+
+            <Button
+                    x:Name="CompartirButton"
+                    Text="Compartir" 
+                    Clicked="OnCompartirClicked"/>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

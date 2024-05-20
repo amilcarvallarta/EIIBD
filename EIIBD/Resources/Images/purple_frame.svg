@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1080" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 720 1080" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+   <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="-0" y1="540.001" x2="720" y2="540.001">
+    <stop offset="0" stop-opacity="1" stop-color="#714EC4"/>
+    <stop offset="1" stop-opacity="1" stop-color="#5F2E8C"/>
+   </linearGradient>
+ </defs>
+ <g id="Capa_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path fill="url(#id0)" d="M0 0l720 0 0 1080 -720 0 0 -1080zm10 977c345,68 508,-49 700,-96l0 -871 -700 0 0 967z"/>
+ </g>
+</svg>
