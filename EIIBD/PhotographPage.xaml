@@ -2,34 +2,55 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             xmlns:local="clr-namespace:EIIBD"
              x:Class="EIIBD.PhotographPage"
+             x:Name="photographPage"
              Title="PhotographPage">
 
-    <Grid ColumnDefinitions="*, *" ColumnSpacing="30" Padding="30">
-        <VerticalStackLayout Grid.Column="0" Spacing="50">
-            <Grid x:Name="PhotographCamera">
-                <cv:CameraView x:Name="cameraView" />
-                <Image Source="purple_frame.png" Aspect="Fill" />
+    <Grid BindingContext="{x:Reference photographPage}" x:DataType="local:PhotographPage">
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="Background" Value="Purple"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+        </Grid.Resources>
+
+        <Grid x:Name="PhotographCameraShell" IsVisible="False">
+            <Grid>
+                <Grid >
+                    <cv:CameraView x:Name="cameraView"/>
+                    <Image Source="purple_frame.png" Aspect="Fill" />
+                </Grid>
+                <Button Text="Regresar"
+                        IsVisible="{Binding regresarActivado}"
+                        HorizontalOptions="Start"
+                        Clicked="OnRegresarClicked"/>
+
+                <Button Text="Capturar"
+                        IsVisible="{Binding capturarActivado}"
+                        HorizontalOptions="End"
+                        Clicked="OnCapturarClicked"/>
             </Grid>
+        </Grid>
 
-            <Button
-                    x:Name="CapturarButton"
-                    Text="Capturar" 
-                    Clicked="OnCapturarClicked"/>
-
-        </VerticalStackLayout>
-
-        <VerticalStackLayout Grid.Column="1" Spacing="50">
+        <Grid x:Name="PhotographSnapShell" IsVisible="True">
             <Grid x:Name="PhotographSnap">
-                <Image x:Name="snapPreview" />
+                <Image x:Name="snapPreview" Aspect="Center"/>
                 <Image Source="blue_frame.png" Aspect="Fill" />
             </Grid>
+            <Button Text="Regresar"
+                        IsVisible="{Binding regresarActivado}"
+                        HorizontalOptions="Start"
+                        Clicked="OnRegresarClicked"/>
 
-            <Button
-                    x:Name="CompartirButton"
-                    Text="Compartir" 
-                    Clicked="OnCompartirClicked"/>
+            <Button Text="Compartir"
+                        IsVisible="{Binding compartirActivado}"
+                        HorizontalOptions="End"
+                        Clicked="OnCompartirClicked"/>
+        </Grid>
 
-        </VerticalStackLayout>
     </Grid>
 </ContentPage>
