@@ -4,38 +4,32 @@ namespace EIIBD;
 
 public partial class PhotographPage : ContentPage
 {
-    //Todo: Crear imagen de captura predeterminada
-    //Todo: Crear imagen para camara invalidada
-    public static readonly BindableProperty capturarActivadoProperty =
-      BindableProperty.Create("capturarActivado", typeof(bool), typeof(PhotographPage), false);
+    bool capturarActivado = false;
+    bool compartirActivado = false;
+    bool regresarActivado = false;
 
-    public static readonly BindableProperty compartirActivadoProperty =
-      BindableProperty.Create("compartirActivado", typeof(bool), typeof(PhotographPage), false);
-
-    public static readonly BindableProperty regresarActivadoProperty =
-      BindableProperty.Create("regresarActivado", typeof(bool), typeof(PhotographPage), false);
-
-    public bool capturarActivado
+    public bool CapturarActivado
     {
-        get => (bool)GetValue(capturarActivadoProperty);
-        set => SetValue(capturarActivadoProperty, value);
+        get => capturarActivado;
+        set { capturarActivado = value; OnPropertyChanged(); }
     }
 
-    public bool compartirActivado
+    public bool CompartirActivado
     {
-        get => (bool)GetValue(compartirActivadoProperty);
-        set => SetValue(compartirActivadoProperty, value);
+        get => compartirActivado;
+        set { compartirActivado = value; OnPropertyChanged(); }
     }
 
-    public bool regresarActivado
+    public bool RegresarActivado
     {
-        get => (bool)GetValue(regresarActivadoProperty);
-        set => SetValue(regresarActivadoProperty, value);
+        get => regresarActivado;
+        set { regresarActivado = value; OnPropertyChanged(); }
     }
 
     public PhotographPage()
     {
         InitializeComponent();
+        BindingContext = this;
         cameraView.CamerasLoaded += CameraView_CamerasLoaded;
     }
 
@@ -48,7 +42,7 @@ public partial class PhotographPage : ContentPage
             {
                 if (await cameraView.StartCameraAsync() == CameraResult.Success)
                 {
-                    capturarActivado = true;
+                    CapturarActivado = true;
                     verPaginaCapturar(true);
                 }
             });
@@ -66,7 +60,7 @@ public partial class PhotographPage : ContentPage
         {
             var result = ImageSource.FromStream(() => stream);
             snapPreview.Source = result;
-            compartirActivado = true;
+            CompartirActivado = true;
             verPaginaCapturar(false);
         }
     }
@@ -100,11 +94,12 @@ public partial class PhotographPage : ContentPage
 
     private void verPaginaCapturar(bool Ver)
     {
-        regresarActivado = compartirActivado & capturarActivado;
+        RegresarActivado = CompartirActivado & CapturarActivado;
         PhotographCameraShell.IsVisible = Ver;
         PhotographSnapShell.IsVisible = !Ver;
     }
 
+    //TODO: Provicional
     private async void OnverCatálogoClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//gallery");

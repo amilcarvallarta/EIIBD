@@ -7,7 +7,7 @@
              x:Name="photographPage"
              Title="Retratar">
 
-    <Grid BindingContext="{x:Reference photographPage}" x:DataType="local:PhotographPage">
+    <Grid x:DataType="local:PhotographPage">
         <Grid.Resources>
             <Style TargetType="Button">
                 <Setter Property="FontAttributes" Value="Bold"/>
@@ -25,12 +25,12 @@
                     <Image Source="purple_frame.png" Aspect="Fill" />
                 </Grid>
                 <Button Text="Regresar"
-                        IsVisible="{Binding regresarActivado}"
+                        IsVisible="{Binding RegresarActivado}"
                         HorizontalOptions="Start"
                         Clicked="OnRegresarClicked"/>
 
                 <Button Text="Capturar"
-                        IsVisible="{Binding capturarActivado}"
+                        IsVisible="{Binding CapturarActivado}"
                         HorizontalOptions="End"
                         Clicked="OnCapturarClicked"/>
             </Grid>
@@ -42,16 +42,16 @@
                 <Image Source="blue_frame.png" Aspect="Fill" />
             </Grid>
             <Button Text="Regresar"
-                        IsVisible="{Binding regresarActivado}"
+                        IsVisible="{Binding RegresarActivado}"
                         HorizontalOptions="Start"
                         Clicked="OnRegresarClicked"/>
-
+            <!--Provicional-->
             <Button Text="Catálogo"
                         HorizontalOptions="Center"
                         Clicked="OnverCatálogoClicked"/>
 
             <Button Text="Compartir"
-                        IsVisible="{Binding compartirActivado}"
+                        IsVisible="{Binding CompartirActivado}"
                         HorizontalOptions="End"
                         Clicked="OnCompartirClicked"/>
         </Grid>
