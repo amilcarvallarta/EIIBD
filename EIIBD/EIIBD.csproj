@@ -74,9 +74,6 @@
 	  <MauiXaml Update="AppShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="FrameGallery.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="PhotographPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

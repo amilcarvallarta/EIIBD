@@ -4,6 +4,7 @@ namespace EIIBD;
 
 public partial class PhotographPage : ContentPage
 {
+    #region Estado
     bool capturarActivado = false;
     bool compartirActivado = false;
     bool regresarActivado = false;
@@ -25,6 +26,7 @@ public partial class PhotographPage : ContentPage
         get => regresarActivado;
         set { regresarActivado = value; OnPropertyChanged(); }
     }
+    #endregion
 
     public PhotographPage()
     {
@@ -97,11 +99,5 @@ public partial class PhotographPage : ContentPage
         RegresarActivado = CompartirActivado & CapturarActivado;
         PhotographCameraShell.IsVisible = Ver;
         PhotographSnapShell.IsVisible = !Ver;
-    }
-
-    //TODO: Provicional
-    private async void OnverCatálogoClicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync("//gallery");
     }
 }

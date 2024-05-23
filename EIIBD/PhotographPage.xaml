@@ -28,7 +28,6 @@
                         IsVisible="{Binding RegresarActivado}"
                         HorizontalOptions="Start"
                         Clicked="OnRegresarClicked"/>
-
                 <Button Text="Capturar"
                         IsVisible="{Binding CapturarActivado}"
                         HorizontalOptions="End"
@@ -45,11 +44,6 @@
                         IsVisible="{Binding RegresarActivado}"
                         HorizontalOptions="Start"
                         Clicked="OnRegresarClicked"/>
-            <!--Provicional-->
-            <Button Text="Catálogo"
-                        HorizontalOptions="Center"
-                        Clicked="OnverCatálogoClicked"/>
-
             <Button Text="Compartir"
                         IsVisible="{Binding CompartirActivado}"
                         HorizontalOptions="End"
