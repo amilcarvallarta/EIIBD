@@ -105,4 +105,8 @@ public partial class PhotographPage : ContentPage
         PhotographSnapShell.IsVisible = !Ver;
     }
 
+    private async void OnverCatálogoClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//gallery");
+    }
 }

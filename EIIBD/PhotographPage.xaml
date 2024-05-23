@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:EIIBD"
              x:Class="EIIBD.PhotographPage"
              x:Name="photographPage"
-             Title="PhotographPage">
+             Title="Retratar">
 
     <Grid BindingContext="{x:Reference photographPage}" x:DataType="local:PhotographPage">
         <Grid.Resources>
@@ -45,6 +45,10 @@
                         IsVisible="{Binding regresarActivado}"
                         HorizontalOptions="Start"
                         Clicked="OnRegresarClicked"/>
+
+            <Button Text="Catálogo"
+                        HorizontalOptions="Center"
+                        Clicked="OnverCatálogoClicked"/>
 
             <Button Text="Compartir"
                         IsVisible="{Binding compartirActivado}"
