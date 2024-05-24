@@ -19,10 +19,10 @@ public partial class AppShell : Shell
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        SetItems(imageSourceList());
+        SetFrameCommand.Execute(SetItems(imageSourceList()));
     }
 
-    public void SetItems(List<ImageSource> sourceList)
+    public ImageSource? SetItems(List<ImageSource> sourceList)
     {
         //TODO: Pasar a Linq
         foreach (ImageSource imageSource in sourceList)
@@ -34,11 +34,15 @@ public partial class AppShell : Shell
                 CommandParameter = imageSource,
             });
         }
+
+        return sourceList.FirstOrDefault();
     }
 
     //TODO: Pasar a un servicio asincrono
     private List<ImageSource> imageSourceList()
     {
+        //TODO: Dejar pendiente hasta cambiar el directorio de Frames
+        /*
         List<ImageSource> sourceList = [];
         string mainDir = FileSystem.Current.AppDataDirectory;
 
@@ -55,11 +59,15 @@ public partial class AppShell : Shell
         {
             Console.WriteLine(e.Message);
         }
+        */
 
         //TODO:Borrar
-        List<ImageSource> sourceList2 = [];
-        sourceList2.Add(ImageSource.FromFile("blue_frame.png"));
-        sourceList2.Add(ImageSource.FromFile("purple_frame.png"));
+        List<ImageSource> sourceList = [];
+        sourceList.Add(ImageSource.FromFile("black_frame.png"));
+        sourceList.Add(ImageSource.FromFile("blue_frame.png"));
+        sourceList.Add(ImageSource.FromFile("green_frame.png"));
+        sourceList.Add(ImageSource.FromFile("purple_frame.png"));
+        sourceList.Add(ImageSource.FromFile("red_frame.png"));
         return sourceList;
     }
 }

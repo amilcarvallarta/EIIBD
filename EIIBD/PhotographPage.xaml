@@ -4,10 +4,11 @@
              xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
              xmlns:local="clr-namespace:EIIBD"
              x:Class="EIIBD.PhotographPage"
+             x:DataType="local:PhotographPage"
              x:Name="photographPage"
              Title="Retratar">
 
-    <Grid x:DataType="local:PhotographPage">
+    <Grid>
         <Grid.Resources>
             <Style TargetType="Button">
                 <Setter Property="FontAttributes" Value="Bold"/>
@@ -38,7 +39,7 @@
         <Grid x:Name="PhotographSnapShell" IsVisible="True">
             <Grid x:Name="PhotographSnap">
                 <Image x:Name="snapPreview" Aspect="Center"/>
-                <Image Source="blue_frame.png" Aspect="Fill" />
+                <Image Source="{Binding FrameImageSource}" Aspect="Fill" />
             </Grid>
             <Button Text="Regresar"
                         IsVisible="{Binding RegresarActivado}"
