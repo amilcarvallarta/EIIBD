@@ -19,23 +19,47 @@ public partial class AppShell : Shell
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        SetItems();
+        SetItems(imageSourceList());
     }
 
-    public void SetItems()
+    public void SetItems(List<ImageSource> sourceList)
     {
-        //TODO: Encontrar la forma de resiclar ImageSource IconImageSource en CommandParameter
-        Items.Add(new MenuItem
+        //TODO: Pasar a Linq
+        foreach (ImageSource imageSource in sourceList)
         {
-            IconImageSource = "blue_frame.png",
-            Command = SetFrameCommand,
-            CommandParameter = ImageSource.FromFile("blue_frame.png"),
-        });
-        Items.Add(new MenuItem
+            Items.Add(new MenuItem
+            {
+                IconImageSource = imageSource,
+                Command = SetFrameCommand,
+                CommandParameter = imageSource,
+            });
+        }
+    }
+
+    //TODO: Pasar a un servicio asincrono
+    private List<ImageSource> imageSourceList()
+    {
+        List<ImageSource> sourceList = [];
+        string mainDir = FileSystem.Current.AppDataDirectory;
+
+        try
         {
-            IconImageSource = "purple_frame.png",
-            Command = SetFrameCommand,
-            CommandParameter = ImageSource.FromFile("purple_frame.png"),
-        });
+            var frameFiles = Directory.EnumerateFiles(mainDir, "*.png");
+            //TODO: Pasar a Linq
+            foreach (string currentframeFile in frameFiles)
+            {
+                sourceList.Add(ImageSource.FromFile(currentframeFile));
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        //TODO:Borrar
+        List<ImageSource> sourceList2 = [];
+        sourceList2.Add(ImageSource.FromFile("blue_frame.png"));
+        sourceList2.Add(ImageSource.FromFile("purple_frame.png"));
+        return sourceList;
     }
 }
