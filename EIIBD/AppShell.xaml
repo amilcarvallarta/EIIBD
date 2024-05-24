@@ -11,21 +11,18 @@
         <DataTemplate>
             <Grid>
                 <Image Source="{Binding Icon}"
-                       Aspect="AspectFit"
                        Margin="0,0,0,10"
-                       />
+                       Aspect="AspectFit"/>
             </Grid>
         </DataTemplate>
     </Shell.MenuItemTemplate>
 
     <ShellContent
+        Title="Fallo"
         Shell.NavBarIsVisible="False"
         Shell.TabBarIsVisible="False"
         ContentTemplate="{DataTemplate local:PhotographPage}"
         Route="photograph" 
-        FlyoutItemIsVisible="True"/>
-
-    <MenuItem IconImageSource="purple_frame.png" />
-    <MenuItem IconImageSource="Blue_frame.png" />
+        FlyoutItemIsVisible="False"/>
 
 </Shell>
