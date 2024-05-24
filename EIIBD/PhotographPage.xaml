@@ -22,7 +22,7 @@
             <Grid>
                 <Grid >
                     <cv:CameraView x:Name="cameraView"/>
-                    <Image Source="purple_frame.png" Aspect="Fill" />
+                    <Image Source="{Binding FrameImageSource}" Aspect="Fill" />
                 </Grid>
                 <Button Text="Regresar"
                         IsVisible="{Binding RegresarActivado}"

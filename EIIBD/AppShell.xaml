@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:EIIBD"
     FlyoutWidth="170"
     Title="EIIBD">
-
+    
     <Shell.MenuItemTemplate>
         <DataTemplate>
             <Grid>
@@ -18,11 +18,10 @@
     </Shell.MenuItemTemplate>
 
     <ShellContent
-        Title="Fallo"
         Shell.NavBarIsVisible="False"
         Shell.TabBarIsVisible="False"
         ContentTemplate="{DataTemplate local:PhotographPage}"
         Route="photograph" 
-        FlyoutItemIsVisible="False"/>
+        FlyoutItemIsVisible="false"/>
 
 </Shell>

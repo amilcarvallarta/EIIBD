@@ -5,32 +5,43 @@ namespace EIIBD;
 public partial class PhotographPage : ContentPage
 {
     #region Estado
-    bool capturarActivado = false;
-    bool compartirActivado = false;
-    bool regresarActivado = false;
-
     public bool CapturarActivado
     {
         get => capturarActivado;
         set { capturarActivado = value; OnPropertyChanged(); }
     }
+    bool capturarActivado = false;
 
     public bool CompartirActivado
     {
         get => compartirActivado;
         set { compartirActivado = value; OnPropertyChanged(); }
     }
+    bool compartirActivado = false;
 
     public bool RegresarActivado
     {
         get => regresarActivado;
         set { regresarActivado = value; OnPropertyChanged(); }
     }
+    bool regresarActivado = false;
+
+    public ImageSource FrameImageSource
+    {
+        get => frameImageSource;
+        set { frameImageSource = value; OnPropertyChanged(); }
+    }
+    ImageSource? frameImageSource = null;
     #endregion
 
     public PhotographPage()
     {
         InitializeComponent();
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
         BindingContext = this;
         cameraView.CamerasLoaded += CameraView_CamerasLoaded;
     }
