@@ -23,7 +23,10 @@
             <Grid>
                 <Grid >
                     <cv:CameraView x:Name="cameraView"/>
-                    <Image Source="{Binding FrameImageSource}" Aspect="Fill" />
+                    <Image x:Name="FrameImageCamera"
+                       x:DataType="local:FrameSelectedItem"
+                       Source="{Binding FrameItem}"
+                       Aspect="Fill" />
                 </Grid>
                 <Button Text="Regresar"
                         IsVisible="{Binding RegresarActivado}"
@@ -39,7 +42,10 @@
         <Grid x:Name="PhotographSnapShell" IsVisible="True">
             <Grid x:Name="PhotographSnap">
                 <Image x:Name="snapPreview" Aspect="Center"/>
-                <Image Source="{Binding FrameImageSource}" Aspect="Fill" />
+                <Image x:Name="FrameImagePhotograph"
+                       x:DataType="local:FrameSelectedItem"
+                       Source="{Binding FrameItem}"
+                       Aspect="Fill" />
             </Grid>
             <Button Text="Regresar"
                         IsVisible="{Binding RegresarActivado}"

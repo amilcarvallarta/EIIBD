@@ -19,7 +19,9 @@ public partial class AppShell : Shell
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        SetFrameCommand.Execute(SetItems(imageSourceList()));
+        SetItems(imageSourceList());
+        //TODO: Implementar servicio para que funcione
+        //SetFrameCommand.Execute(SetItems(imageSourceList()));
     }
 
     public ImageSource? SetItems(List<ImageSource> sourceList)

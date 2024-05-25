@@ -26,7 +26,7 @@ public partial class PhotographPage : ContentPage
     }
     bool regresarActivado = false;
 
-    public ImageSource FrameImageSource
+    public ImageSource? FrameImageSource
     {
         get => frameImageSource;
         set { frameImageSource = value; OnPropertyChanged(); }
@@ -34,9 +34,11 @@ public partial class PhotographPage : ContentPage
     ImageSource? frameImageSource = null;
     #endregion
 
-    public PhotographPage()
+    public PhotographPage(FrameSelectedItem frameSelectedItem)
     {
         InitializeComponent();
+        FrameImageCamera.BindingContext = frameSelectedItem;
+        FrameImagePhotograph.BindingContext = frameSelectedItem;
     }
 
     protected override void OnAppearing()
