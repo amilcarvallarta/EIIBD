@@ -24,7 +24,7 @@
                 <Grid >
                     <cv:CameraView x:Name="cameraView"/>
                     <Image x:Name="FrameImageCamera"
-                       x:DataType="local:FrameSelectedItem"
+                       x:DataType="local:FrameCurrentItem"
                        Source="{Binding FrameItem}"
                        Aspect="Fill" />
                 </Grid>
@@ -43,7 +43,7 @@
             <Grid x:Name="PhotographSnap">
                 <Image x:Name="snapPreview" Aspect="Center"/>
                 <Image x:Name="FrameImagePhotograph"
-                       x:DataType="local:FrameSelectedItem"
+                       x:DataType="local:FrameCurrentItem"
                        Source="{Binding FrameItem}"
                        Aspect="Fill" />
             </Grid>

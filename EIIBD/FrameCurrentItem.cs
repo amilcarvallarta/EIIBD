@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EIIBD
 {
-    public class FrameSelectedItem : BindableObject
+    public class FrameCurrentItem : BindableObject
     {
         public ImageSource FrameItem
         {

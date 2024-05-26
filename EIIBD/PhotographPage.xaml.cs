@@ -34,11 +34,11 @@ public partial class PhotographPage : ContentPage
     ImageSource? frameImageSource = null;
     #endregion
 
-    public PhotographPage(FrameSelectedItem frameSelectedItem)
+    public PhotographPage(FrameCurrentItem CurrentItem)
     {
         InitializeComponent();
-        FrameImageCamera.BindingContext = frameSelectedItem;
-        FrameImagePhotograph.BindingContext = frameSelectedItem;
+        FrameImageCamera.BindingContext = CurrentItem;
+        FrameImagePhotograph.BindingContext = CurrentItem;
     }
 
     protected override void OnAppearing()

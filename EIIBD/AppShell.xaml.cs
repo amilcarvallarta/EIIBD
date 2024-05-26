@@ -5,14 +5,14 @@ namespace EIIBD;
 public partial class AppShell : Shell
 {
     public Command SetFrameCommand;
-
-    public AppShell()
+    public AppShell(FrameCurrentItem currentItem)
     {
         InitializeComponent();
+
         SetFrameCommand = new Command<ImageSource>(
                 execute: (ImageSource FrameImageSource) =>
                 {
-                    ((PhotographPage)CurrentPage).FrameImageSource = FrameImageSource;
+                    currentItem.FrameItem = FrameImageSource;
                 });
     }
 
@@ -20,8 +20,6 @@ public partial class AppShell : Shell
     {
         base.OnAppearing();
         SetItems(imageSourceList());
-        //TODO: Implementar servicio para que funcione
-        //SetFrameCommand.Execute(SetItems(imageSourceList()));
     }
 
     public ImageSource? SetItems(List<ImageSource> sourceList)
