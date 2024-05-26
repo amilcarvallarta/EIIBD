@@ -17,6 +17,7 @@ namespace EIIBD
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<ImageSourceList_FromResources>();
             builder.Services.AddSingleton<FrameCurrentItem>();
             builder.Services.AddSingleton<App>();
             builder.Services.AddSingleton<AppShell>();
