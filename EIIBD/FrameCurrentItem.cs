@@ -13,6 +13,6 @@ namespace EIIBD
             get => frameItem;
             set { frameItem = value; OnPropertyChanged("FrameItem"); }
         }
-        ImageSource frameItem = ImageSource.FromResource("blue_frame.png");
+        ImageSource frameItem = ImageSource.FromFile("red_frame.png");
     }
 }
