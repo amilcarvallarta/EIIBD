@@ -17,14 +17,15 @@ namespace EIIBD
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddSingleton<ImageSourceList_FromResources>();
-            builder.Services.AddSingleton<FrameCurrentItem>();
             builder.Services.AddSingleton<App>();
             builder.Services.AddSingleton<AppShell>();
-            builder.Services.AddSingleton<PhotographPage>();
+            builder.Services.AddSingleton<CrearRetratoEnmarcado_UsandoLaCámara_Page>();
+
+            builder.Services.AddSingleton<Marcos_Repository>();
+            builder.Services.AddSingleton<SeleccionarMarco_Services>();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

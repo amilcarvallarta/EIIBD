@@ -2,32 +2,33 @@ namespace EIIBD;
 
 public partial class AppShell : Shell
 {
-    public Command SetFrameCommand;
-    public AppShell(
-        FrameCurrentItem currentItem,
-        ImageSourceList_FromResources imageSourceList)
+    readonly SeleccionarMarco_Services seleccionarMarco;
+    readonly Marcos_Repository listaDe_Marcos;
+
+    public AppShell( SeleccionarMarco_Services seleccionarMarco,
+                     Marcos_Repository listaDe_Marcos)
     {
         InitializeComponent();
+     
+        this.seleccionarMarco = seleccionarMarco;
+        this.listaDe_Marcos = listaDe_Marcos;
 
-        SetFrameCommand = new Command<ImageSource>(
-                execute: (ImageSource FrameImageSource) =>
-                {
-                    currentItem.FrameItem = FrameImageSource;
-                });
-
-        SetItems(imageSourceList.Items());
+        agregarMarcos_a_LaGaleria();
     }
 
-    public void SetItems(List<ImageSource> sourceList)
+    public void agregarMarcos_a_LaGaleria()
     {
-        //TODO: Pasar a Linq
-        foreach (ImageSource imageSource in sourceList)
+        foreach (ImageSource marco in listaDe_Marcos.Todos())
         {
             Items.Add(new MenuItem
             {
-                IconImageSource = imageSource,
-                Command = SetFrameCommand,
-                CommandParameter = imageSource,
+                IconImageSource = marco,
+                CommandParameter = marco,
+                Command = new Command<ImageSource>(
+                    execute: (ImageSource marcoSeleccionado_PorEl_Usuario) =>
+                    {
+                        seleccionarMarco.MarcoSeleccionado = marcoSeleccionado_PorEl_Usuario;
+                    })
             });
         }
     }

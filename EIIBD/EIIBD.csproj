@@ -71,10 +71,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="CrearRetratoEnmarcado_UsandoLaCámara_Page.xaml.cs">
+	    <DependentUpon>CrearRetratoEnmarcado_UsandoLaCámara_Page.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="AppShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PhotographPage.xaml">
+	  <MauiXaml Update="CrearRetratoEnmarcado_UsandoLaCámara_Page.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

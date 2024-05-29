@@ -20,8 +20,8 @@
     <ShellContent
         Shell.NavBarIsVisible="False"
         Shell.TabBarIsVisible="False"
-        ContentTemplate="{DataTemplate local:PhotographPage}"
-        Route="photograph" 
+        ContentTemplate="{DataTemplate local:CrearRetratoEnmarcado_UsandoLaCámara_Page}"
+        Route="crearretratoenmarcado" 
         FlyoutItemIsVisible="false"/>
 
 </Shell>

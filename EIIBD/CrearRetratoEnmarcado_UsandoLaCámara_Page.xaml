@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             xmlns:local="clr-namespace:EIIBD"
+             x:Class="EIIBD.CrearRetratoEnmarcado_UsandoLaCámara_Page"
+             x:DataType="local:CrearRetratoEnmarcado_UsandoLaCámara_Page"
+             x:Name="photographPage"
+             Title="Retratar">
+
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="Background" Value="Purple"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+        </Grid.Resources>
+
+        <!--Camara lista para captura retrato-->
+        <Grid x:Name="CamaraView"
+              IsVisible="False">
+            
+            <Grid>
+
+                <cv:CameraView x:Name="CamaraEnPantalla"/>
+
+                <Image x:Name="Enmarcado_DeLaCamaraEnPantallan"
+                       x:DataType="local:SeleccionarMarco_Services"
+                       Source="{Binding MarcoSeleccionado}"
+                       Aspect="Fill" />
+                
+            </Grid>
+            
+            <Button Text="Regresar"
+                    Clicked="RegresarClicked"
+                    IsVisible="{Binding RegresarActivado}"
+                    HorizontalOptions="Start"/>
+            
+            <Button Text="Capturar"
+                    Clicked="CapturarClicked"
+                    IsVisible="{Binding CapturarFotoActivado}"
+                    HorizontalOptions="End"/>
+            
+        </Grid>
+
+        <!--Retrato despues de haber capturado la foto con la camara-->
+        <Grid x:Name="RetratoView"
+              IsVisible="True">
+            
+            <Grid x:Name="ComposicionFotografica">
+                
+                <Image x:Name="FotografíaDeLaComposición"
+                       Aspect="Center"/>
+                
+                <Image x:Name="Enmarcado_DeLaComposicion"
+                       x:DataType="local:SeleccionarMarco_Services"
+                       Source="{Binding MarcoSeleccionado}"
+                       Aspect="Fill" />
+                
+            </Grid>
+            
+            <Button Text="Regresar"
+                    Clicked="RegresarClicked"
+                    IsVisible="{Binding RegresarActivado}"
+                    HorizontalOptions="Start"/>
+            
+            <Button Text="Compartir"
+                    Clicked="CompartirClicked"
+                    IsVisible="{Binding CompartirRetratoActivado}"
+                    HorizontalOptions="End"/>
+            
+        </Grid>
+
+    </Grid>
+</ContentPage>
